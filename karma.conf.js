@@ -79,7 +79,7 @@ module.exports = function(config) {
     },
 
     junitReporter: {
-      outputDir: process.env.CIRCLE_TEST_REPORTS
+      outputDir: path.join('karma', process.env.CIRCLE_TEST_REPORTS)
     },
 
     reporters: ['progress','junit'],

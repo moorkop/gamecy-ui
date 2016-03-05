@@ -6,6 +6,7 @@ test:
   pre:
     - npm install
     - bower install
+    - mkdir -p $CIRCLE_TEST_REPORTS/karma/
   override:
     - gulp test
 
