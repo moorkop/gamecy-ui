@@ -69,6 +69,7 @@ module.exports = function(config) {
       'karma-angular-filesort',
       'karma-coverage',
       'karma-jasmine',
+      'karma-junit-reporter',
       'karma-ng-html2js-preprocessor'
     ],
 
