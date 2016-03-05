@@ -2,10 +2,8 @@ machine:
   timezone:
     America/Denver
 
-checkout:
-  post:
-    - git submodule sync
-    - git submodule update --init
+general:
+  build_dir: dist
 
 dependencies:
   cache_directories:
