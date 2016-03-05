@@ -5,6 +5,7 @@ machine:
 test:
   pre:
     - npm install
+    - bower install
   override:
     - gulp test
 
