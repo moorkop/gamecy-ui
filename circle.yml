@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    America/Denver
+
+checkout:
+  post:
+    - git submodule sync
+    - git submodule update --init
+
+dependencies:
+  cache_directories:
+    - node_modules
+
+notify:
+  webhooks:
+    - url: https://webhooks.gitter.im/e/035e6a1140f00a630984
