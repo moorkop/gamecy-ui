@@ -78,7 +78,11 @@ module.exports = function(config) {
       dir : 'coverage/'
     },
 
-    reporters: ['progress'],
+    junitReporter: {
+      outputDir: process.env.CIRCLE_TEST_REPORTS
+    },
+
+    reporters: ['progress','junit'],
 
     proxies: {
       '/assets/': path.join('/base/', conf.paths.src, '/assets/')
