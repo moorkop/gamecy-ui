@@ -2,12 +2,12 @@ machine:
   timezone:
     America/Denver
 
-general:
-  build_dir: dist
-
-dependencies:
-  cache_directories:
-    - node_modules
+test:
+  pre:
+    - npm install
+    - bower install
+  override:
+    - gulp test
 
 notify:
   webhooks:
