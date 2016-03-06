@@ -11,6 +11,8 @@ var pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
 ];
 
+var circleTestEnv = process.env.CIRCLE_TEST_REPORTS || 'reports';
+
 function listFiles() {
   var wiredepOptions = _.extend({}, conf.wiredep, {
     dependencies: true,
@@ -69,15 +71,20 @@ module.exports = function(config) {
       'karma-angular-filesort',
       'karma-coverage',
       'karma-jasmine',
+      'karma-junit-reporter',
       'karma-ng-html2js-preprocessor'
     ],
 
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : 'coverage/'
     },
 
-    reporters: ['progress'],
+    junitReporter: {
+      outputDir: path.join(circleTestEnv, 'karma')
+    },
+
+    reporters: ['progress','junit'],
 
     proxies: {
       '/assets/': path.join('/base/', conf.paths.src, '/assets/')

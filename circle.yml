@@ -1,0 +1,16 @@
+machine:
+  timezone:
+    America/Denver
+
+test:
+  pre:
+    - npm install
+    - bower install
+  override:
+    - gulp test
+  post:
+    - cat coverage/*/lcov.info | codecov
+
+notify:
+  webhooks:
+    - url: https://webhooks.gitter.im/e/035e6a1140f00a630984
