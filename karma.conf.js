@@ -11,6 +11,8 @@ var pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
 ];
 
+var circleTestEnv = process.env.CIRCLE_TEST_REPORTS || 'reports';
+
 function listFiles() {
   var wiredepOptions = _.extend({}, conf.wiredep, {
     dependencies: true,
@@ -76,6 +78,10 @@ module.exports = function(config) {
     coverageReporter: {
       type : 'lcov',
       dir : 'coverage/'
+    },
+
+    junitReporter: {
+      outputDir: path.join(circleTestEnv, 'karma')
     },
 
     reporters: ['progress','junit'],
