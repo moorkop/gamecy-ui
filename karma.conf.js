@@ -74,12 +74,8 @@ module.exports = function(config) {
     ],
 
     coverageReporter: {
-      type : 'html',
+      type : 'lcov',
       dir : 'coverage/'
-    },
-
-    junitReporter: {
-      outputDir: path.join('karma', process.env.CIRCLE_TEST_REPORTS)
     },
 
     reporters: ['progress','junit'],
